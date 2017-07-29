@@ -15,3 +15,8 @@ locale/
 .idea/
 tmp/
 reddcoin-electrum.spec
+reddcoin_electrum.egg-info/dependency_links.txt
+reddcoin_electrum.egg-info/PKG-INFO
+reddcoin_electrum.egg-info/requires.txt
+reddcoin_electrum.egg-info/SOURCES.txt
+reddcoin_electrum.egg-info/top_level.txt
