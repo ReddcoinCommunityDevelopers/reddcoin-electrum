@@ -497,6 +497,17 @@ class MyVerifyingKey(ecdsa.VerifyingKey):
         Q = inv_r * (s * R + minus_e * G)
         return cls.from_public_point(Q, curve)
 
+class MySigningKey(ecdsa.SigningKey):
+    """Enforce low S values in signatures"""
+
+    def sign_number(self, number, entropy=None, k=None):
+        curve = SECP256k1
+        G = curve.generator
+        order = G.order()
+        r, s = ecdsa.SigningKey.sign_number(self, number, entropy, k)
+        if s > order/2:
+            s = order - s
+        return r, s
 
 class EC_KEY(object):
     def __init__(self, k):
