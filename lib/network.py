@@ -7,7 +7,7 @@ from .blockchain import Blockchain
 DEFAULT_PORTS = {'t': '50001', 's': '50002', 'h': '8081', 'g': '8082'}
 
 DEFAULT_SERVERS = {
-    'reddwallet.org': DEFAULT_PORTS,
+    '82.196.12.14': DEFAULT_PORTS,
 }
 
 DISCONNECTED_RETRY_INTERVAL = 60

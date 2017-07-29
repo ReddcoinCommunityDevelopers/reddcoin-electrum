@@ -6,7 +6,7 @@
 # that can be rewritten by the client
 
 [client]
-server = electrum.reddwallet.org:50001:t
+server = 82.196.12.14:50001:t
 proxy = None
 gap_limit = 5
 # booleans use python syntax

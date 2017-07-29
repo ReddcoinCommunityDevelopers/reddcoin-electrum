@@ -34,7 +34,7 @@ class Blockchain(threading.Thread):
         self.lock = threading.Lock()
         self.local_height = 0
         self.running = False
-        self.headers_url = 'http://headers.reddwallet.org/blockchain_headers'
+        self.headers_url = 'https://github.com/ReddcoinCommunityDevelopers/reddcoin-electrum/releases/download/updated_headers/blockchain_headers'
         self.chunk_size = 2016
         self.header_size = 80
         self.kgw = KGW()
@@ -237,7 +237,10 @@ class Blockchain(threading.Thread):
         name = self.path()
         if os.path.exists(name):
             f = open(name, 'rb')
-            f.seek(block_height * self.header_size)
+            try:
+                f.seek(block_height * self.header_size)
+            except IOError:
+                print_error('Wrong header file. Remove blockchain_headers and try again')
             h = f.read(self.header_size)
             f.close()
             if len(h) == self.header_size:
@@ -245,6 +248,8 @@ class Blockchain(threading.Thread):
                 h['block_height'] = block_height
                 self.cache_headers[block_height] = h
                 return h
+
+
  
         
 
