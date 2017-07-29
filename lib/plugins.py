@@ -9,9 +9,9 @@ def init_plugins(config):
     import pkgutil, __builtin__, os
     global plugins
 
-    import electrum_plugins
-    plugin_names = [name for a, name, b in pkgutil.iter_modules(electrum_plugins.__path__)]
-    plugin_modules = [__import__('electrum_plugins.'+name, fromlist=['electrum_plugins']) for name in plugin_names]
+    import reddcoin_electrum_plugins
+    plugin_names = [name for a, name, b in pkgutil.iter_modules(reddcoin_electrum_plugins.__path__)]
+    plugin_modules = [__import__('reddcoin_electrum_plugins.'+name, fromlist=['reddcoin_electrum_plugins']) for name in plugin_names]
 
     for name, p in zip(plugin_names, plugin_modules):
         try:

@@ -53,7 +53,7 @@ def user_dir():
     elif "HOME" in os.environ:
         return os.path.join(os.environ["HOME"], ".reddcoin-electrum")
     elif 'ANDROID_DATA' in os.environ:
-        return "/sdcard/electrum/"
+        return "/sdcard/reddcoin-electrum/"
     else:
         #raise Exception("No home directory found in environment variables.")
         return
@@ -79,9 +79,9 @@ def appdata_dir():
           platform.system() == "OpenBSD" or
           platform.system() == "FreeBSD" or
           platform.system() == "NetBSD"):
-        return os.path.join(sys.prefix, "share", "electrum")
+        return os.path.join(sys.prefix, "share", "reddcoin-electrum")
     elif platform.system() == "Darwin":
-		return "/Library/Application Support/Electrum"
+		return "/Library/Application Support/Reddcoin-Electrum"
     else:
         raise Exception("Unknown Operating System")
 

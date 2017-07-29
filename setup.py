@@ -20,14 +20,14 @@ data_files = []
 if (len(sys.argv) > 1 and (sys.argv[1] == "sdist")) or (platform.system() != 'Windows' and platform.system() != 'Darwin'):
     print "Including all files"
     data_files += [
-        (os.path.join(usr_share, 'applications/'), ['electrum.desktop']),
-        (os.path.join(usr_share, 'app-install', 'icons/'), ['icons/electrum.png'])
+        (os.path.join(usr_share, 'applications/'), ['reddcoin-electrum.desktop']),
+        (os.path.join(usr_share, 'app-install', 'icons/'), ['icons/reddcoin-electrum.png'])
     ]
     if not os.path.exists('locale'):
         os.mkdir('locale')
     for lang in os.listdir('locale'):
-        if os.path.exists('locale/%s/LC_MESSAGES/electrum.mo' % lang):
-            data_files.append((os.path.join(usr_share, 'locale/%s/LC_MESSAGES' % lang), ['locale/%s/LC_MESSAGES/electrum.mo' % lang]))
+        if os.path.exists('locale/%s/LC_MESSAGES/reddcoin-electrum.mo' % lang):
+            data_files.append((os.path.join(usr_share, 'locale/%s/LC_MESSAGES' % lang), ['locale/%s/LC_MESSAGES/reddcoin-electrum.mo' % lang]))
 
 util = imp.load_source('util', 'lib/util.py')
 appdata_dir = util.appdata_dir()
@@ -70,11 +70,11 @@ setup(
     version=VERSION,
     install_requires=['ecdsa>=0.9', 'pbkdf2', 'requests', 'pyasn1', 'pyasn1-modules',
                       'qrcode', 'tlslite>=0.4.5', 'numpy', 'SocksiPy-branch'],
-    packages=['electrum', 'electrum_gui', 'electrum_gui.qt', 'electrum_plugins'],
+    packages=['reddcoin_electrum', 'reddcoin_electrum_gui', 'reddcoin_electrum_gui.qt', 'reddcoin_electrum_plugins'],
     package_dir={
-        'electrum': 'lib',
-        'electrum_gui': 'gui',
-        'electrum_plugins': 'plugins',
+        'reddcoin_electrum': 'lib',
+        'reddcoin_electrum_gui': 'gui',
+        'reddcoin_electrum_plugins': 'plugins',
     },
     scripts=['reddcoin-electrum'],
     include_package_data=True,

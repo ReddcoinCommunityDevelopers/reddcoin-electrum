@@ -26,12 +26,12 @@ import sys
 import time
 import traceback
 
-from electrum import util
-from electrum import SimpleConfig, Network, Wallet, WalletStorage, NetworkProxy, Commands, known_commands, pick_random_server
-from electrum.util import print_msg, print_stderr, print_json, set_verbosity
-from electrum.daemon import get_daemon
-from electrum.plugins import init_plugins
-from electrum_gui.qt import main_window
+from reddcoin_electrum import util
+from reddcoin_electrum import SimpleConfig, Network, Wallet, WalletStorage, NetworkProxy, Commands, known_commands, pick_random_server
+from reddcoin_electrum.util import print_msg, print_stderr, print_json, set_verbosity
+from reddcoin_electrum.daemon import get_daemon
+from reddcoin_electrum.plugins import init_plugins
+from reddcoin_electrum_gui.qt import main_window
 
 
 # get password routine
@@ -170,7 +170,7 @@ if __name__ == '__main__':
         if gui_name in ['lite', 'classic']:
             gui_name = 'qt'
         try:
-            gui = __import__('electrum_gui.' + gui_name, fromlist=['electrum_gui'])
+            gui = __import__('reddcoin_electrum_gui.' + gui_name, fromlist=['reddcoin_electrum_gui'])
         except ImportError:
             traceback.print_exc(file=sys.stdout)
             sys.exit()
